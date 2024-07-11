@@ -5,7 +5,7 @@ module.exports = {
     title: 'Kanishk Ingle',
     description:
       'Kanishk Ingle is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
-    siteUrl: 'main--kanishkingle.netlify.app', // No trailing slash allowed!
+    siteUrl: 'https://kanishkingle.netlify.app', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@bchiang7',
   },
