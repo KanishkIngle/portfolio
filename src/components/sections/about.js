@@ -125,7 +125,17 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = [
+    'JavaScript (ES6+)',
+    'TypeScript',
+    'React',
+    'AWS',
+    'Node.js',
+    'Java',
+    'GO',
+    '.NET Core',
+    'Azure',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -134,31 +144,37 @@ const About = () => {
       <div className="inner">
         <StyledText>
           <div>
+            <p>I am FullStack Developer | Blockchain & Security Researcher</p>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              I hold about 2+ years of experience in the Cloud Development Domain, blending
+              leadership, management, and software engineering to create innovative solutions.
+              Currently, I’m at{' '}
+              <a href="https://www.carrier.com/carrier/en/worldwide/">Carrier Corporation</a>, in
+              Hyderabad, specializing in cloud technology to build scalable and modern systems.
             </p>
-
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
+              I’m skilled in Amazon Web Services and Azure Cloud, where I design, develop, and
+              manage thriving digital ecosystems. My role goes beyond coding; I steer projects to
+              ensure they meet goals.
             </p>
-
             <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+              Collaboration is key to my approach. I excel in team environments, leveraging
+              collective expertise to tackle challenges. I foster a culture of unity and support,
+              believing that teamwork drives success.
+            </p>
+            <p>
+              Security is a top priority in my work. I implement strong measures to protect cloud
+              applications from online threats, ensuring systems are secure and operational.
+            </p>
+            <p>
+              I embody the spirit of a Full Stack Developer, navigating the digital landscape with
+              skill. Whether crafting solutions from scratch or leading projects, I’m always ready
+              for the challenge.
+            </p>
+            <p>
+              I’ve earned accolades like the Titan Award and Milestone Award for project management
+              excellence. My team also secured 4th place in the Global Sustainable Hackathon for our
+              Green Homes Idea.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
