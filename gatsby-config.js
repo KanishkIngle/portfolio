@@ -97,7 +97,7 @@ module.exports = {
               // If you're unsure, it's best to use the default value.
               classPrefix: 'language-',
               // This is used to allow setting a language for inline code
-              // (i.e. single backticks) by creating a separator.
+              // (i.e. single backticks) by creating a separator.mm.
               // This separator is a string and will do no white-space
               // stripping.
               // A suggested value for English speakers is the non-ascii
@@ -153,6 +153,17 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-45666519-2',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // Replace "YOUR_GOOGLE_ANALYTICS_TRACKING_ID" with your own Google Analytics Tracking ID
+        trackingId: 'G-9MV1JL7ETG',
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
       },
     },
   ],
