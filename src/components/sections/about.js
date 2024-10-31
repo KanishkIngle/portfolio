@@ -148,9 +148,8 @@ const About = () => {
             <p>
               I hold about 2+ years of experience in the Cloud Development Domain, blending
               leadership, management, and software engineering to create innovative solutions.
-              Currently, I’m at{' '}
-              <a href="https://www.carrier.com/carrier/en/worldwide/">Carrier Corporation</a>, in
-              Hyderabad, specializing in cloud technology to build scalable and modern systems.
+              Currently, I’m at <a href="https://www.evoketechnologies.com/">Evoke Technologies</a>,
+              in Hyderabad, specializing in cloud technology to build scalable and modern systems.
             </p>
             <p>
               I’m skilled in Amazon Web Services and Azure Cloud, where I design, develop, and
@@ -170,11 +169,6 @@ const About = () => {
               I embody the spirit of a Full Stack Developer, navigating the digital landscape with
               skill. Whether crafting solutions from scratch or leading projects, I’m always ready
               for the challenge.
-            </p>
-            <p>
-              I’ve earned accolades like the Titan Award and Milestone Award for project management
-              excellence. My team also secured 4th place in the Global Sustainable Hackathon for our
-              Green Homes Idea.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
