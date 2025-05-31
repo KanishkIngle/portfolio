@@ -143,7 +143,9 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  section {
+  .glow-section {
+    position: relative;
+    overflow: hidden;
     margin: 0 auto;
     padding: 100px 0;
     max-width: 1000px;
@@ -155,6 +157,28 @@ const GlobalStyle = createGlobalStyle`
     @media (max-width: 480px) {
       padding: 60px 0;
     }
+  }
+
+  .glow-section::before {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 150, 0.15) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    top: var(--mouse-y);
+    left: var(--mouse-x);
+    opacity: var(--glow-opacity);
+    transition: top 0.05s ease, left 0.05s ease, opacity 0.3s ease;
+    filter: blur(80px);
+    mix-blend-mode: lighten;
+    z-index: 0;
+  }
+
+  .glow-section:hover::before {
+    opacity: 1;
   }
 
   h1,
