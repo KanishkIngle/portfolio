@@ -7,14 +7,24 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center; /* vertical centering */
+  flex-direction: column;
+  height: 100vh; /* full viewport height */
+  padding: 20px; /* optional padding so content isn't flush to edges */
 
   .inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-gap: 50px;
+    justify-content: center;
 
     @media (max-width: 768px) {
       display: block;
+      margin: 0 auto;
+      max-width: 90%;
     }
   }
 `;
@@ -144,7 +154,7 @@ const About = () => {
       <div className="inner">
         <StyledText>
           <div>
-            <p>I am FullStack Developer | Blockchain & Security Researcher</p>
+            <p>I am Full-Stack Developer </p>
             <p>
               I hold about 2+ years of experience in the Cloud Development Domain, blending
               leadership, management, and software engineering to create innovative solutions.
@@ -164,11 +174,6 @@ const About = () => {
             <p>
               Security is a top priority in my work. I implement strong measures to protect cloud
               applications from online threats, ensuring systems are secure and operational.
-            </p>
-            <p>
-              I embody the spirit of a Full Stack Developer, navigating the digital landscape with
-              skill. Whether crafting solutions from scratch or leading projects, I’m always ready
-              for the challenge.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>

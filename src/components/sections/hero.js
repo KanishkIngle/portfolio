@@ -5,12 +5,47 @@ import { navDelay, loaderDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledHeroSection = styled.section`
+  position: relative;
+  overflow: hidden;
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   min-height: 100vh;
   height: 100vh;
   padding: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      rgba(0, 255, 119, 0.1),
+      rgba(255, 221, 0, 0.2),
+      rgba(255, 0, 0, 0.1)
+    );
+    animation: rotateGradient 10s linear infinite;
+    z-index: 0;
+    filter: blur(80px);
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes rotateGradient {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
   @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
     height: auto;

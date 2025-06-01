@@ -470,6 +470,50 @@ const GlobalStyle = createGlobalStyle`
   ${TransitionStyles};
 
   ${PrismStyles};
+
+  /* Added styles for projects to fix z-index and spacing */
+  .StyledProject {
+    &:last-of-type {
+      margin-bottom: 150px;
+    }
+
+    .project-content {
+      z-index: 3;
+
+      @media (max-width: 768px) {
+        position: relative;
+        z-index: 3;
+        background-color: rgba(10, 25, 47, 0.85);
+        backdrop-filter: blur(4px);
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 30px -15px var(--navy);
+      }
+    }
+
+    .project-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .project-description {
+      z-index: 4;
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      line-height: 1.2;
+    }
+
+    .project-image {
+      z-index: 1;
+
+      a:before {
+        z-index: 1;
+      }
+    }
+  }
 `;
 
 export default GlobalStyle;

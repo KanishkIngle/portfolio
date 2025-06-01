@@ -38,6 +38,10 @@ const StyledProject = styled.li`
     }
   }
 
+  &:last-of-type {
+    margin-bottom: 150px;
+  }
+
   &:nth-of-type(odd) {
     .project-content {
       grid-column: 7 / -1;
@@ -94,6 +98,7 @@ const StyledProject = styled.li`
     position: relative;
     grid-column: 1 / 7;
     grid-row: 1 / -1;
+    z-index: 3;
 
     @media (max-width: 1080px) {
       grid-column: 1 / 9;
@@ -106,7 +111,12 @@ const StyledProject = styled.li`
       height: 100%;
       grid-column: 1 / -1;
       padding: 40px 40px 30px;
-      z-index: 5;
+      z-index: 3;
+      position: relative;
+      background-color: rgba(10, 25, 47, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: var(--border-radius);
+      ${({ theme }) => theme.mixins.boxShadow};
     }
 
     @media (max-width: 480px) {
@@ -153,10 +163,11 @@ const StyledProject = styled.li`
   .project-description {
     ${({ theme }) => theme.mixins.boxShadow};
     position: relative;
-    z-index: 2;
+    z-index: 4;
     padding: 25px;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    background-color: rgba(10, 25, 47, 0.9);
+    backdrop-filter: blur(4px);
     color: var(--light-slate);
     font-size: var(--fz-lg);
 
@@ -275,7 +286,7 @@ const StyledProject = styled.li`
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 3;
+        z-index: 1;
         transition: var(--transition);
         background-color: var(--navy);
         mix-blend-mode: screen;

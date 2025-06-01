@@ -1,7 +1,7 @@
 ---
 date: '1'
 title: 'Library Management System'
-cover: 'LMS.jpg'
+cover: 'LMS-2.png'
 github: 'https://github.com/KanishkIngle/Java-Library-Management-System/tree/main'
 
 tech:

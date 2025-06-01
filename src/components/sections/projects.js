@@ -11,6 +11,7 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 150px auto 100px;
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));
@@ -66,6 +67,8 @@ const StyledProject = styled.li`
     ${({ theme }) => theme.mixins.boxShadow};
     ${({ theme }) => theme.mixins.flexBetween};
     flex-direction: column;
+    display: flex;
+    justify-content: space-between;
     align-items: flex-start;
     position: relative;
     height: 100%;
@@ -73,7 +76,6 @@ const StyledProject = styled.li`
     border-radius: var(--border-radius);
     background-color: var(--light-navy);
     transition: var(--transition);
-    overflow: auto;
   }
 
   .project-top {
@@ -118,6 +120,7 @@ const StyledProject = styled.li`
     margin: 0 0 10px;
     color: var(--lightest-slate);
     font-size: var(--fz-xxl);
+    line-height: 1.2;
 
     a {
       position: static;
@@ -138,6 +141,7 @@ const StyledProject = styled.li`
   .project-description {
     color: var(--light-slate);
     font-size: 17px;
+    margin-bottom: 20px;
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};

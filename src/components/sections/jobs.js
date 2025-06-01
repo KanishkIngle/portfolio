@@ -9,6 +9,7 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
   max-width: 700px;
+  margin: 100px auto 100px;
 
   .inner {
     display: flex;
@@ -282,8 +283,7 @@ const Jobs = () => {
                     role="tabpanel"
                     tabIndex={activeTabId === i ? '0' : '-1'}
                     aria-labelledby={`tab-${i}`}
-                    aria-hidden={activeTabId !== i}
-                    hidden={activeTabId !== i}>
+                    hidden={!(activeTabId === i)}>
                     <h3>
                       <span>{title}</span>
                       <span className="company">
