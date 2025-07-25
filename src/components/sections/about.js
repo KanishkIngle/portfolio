@@ -7,24 +7,14 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center; /* vertical centering */
-  flex-direction: column;
-  height: 100vh; /* full viewport height */
-  padding: 20px; /* optional padding so content isn't flush to edges */
 
   .inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-gap: 50px;
-    justify-content: center;
 
     @media (max-width: 768px) {
       display: block;
-      margin: 0 auto;
-      max-width: 90%;
     }
   }
 `;

@@ -9,7 +9,6 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
   max-width: 700px;
-  margin: 100px auto 100px;
 
   .inner {
     display: flex;
@@ -100,7 +99,9 @@ const StyledTabButton = styled.button`
   }
 `;
 
-const StyledHighlight = styled.div`
+const StyledHighlight = styled.div.attrs(props => ({
+  style: props.style,
+}))`
   position: absolute;
   top: 0;
   left: 0;
@@ -109,7 +110,6 @@ const StyledHighlight = styled.div`
   height: var(--tab-height);
   border-radius: var(--border-radius);
   background: var(--green);
-  transform: translateY(calc(${({ activeTabId }) => activeTabId} * var(--tab-height)));
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.1s;
 
@@ -120,8 +120,8 @@ const StyledHighlight = styled.div`
     max-width: var(--tab-width);
     height: 2px;
     margin-left: 50px;
-    transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
   }
+
   @media (max-width: 480px) {
     margin-left: 25px;
   }
@@ -192,6 +192,7 @@ const Jobs = () => {
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
+  const [highlightStyle, setHighlightStyle] = useState({});
   const tabs = useRef([]);
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -221,6 +222,25 @@ const Jobs = () => {
 
   // Only re-run the effect if tabFocus changes
   useEffect(() => focusTab(), [tabFocus]);
+
+  useEffect(() => {
+    const tab = tabs.current[activeTabId];
+    if (tab) {
+      setTimeout(() => {
+        if (window.innerWidth < 600) {
+          setHighlightStyle({
+            transform: `translateX(${tab.offsetLeft}px)`,
+            width: `${tab.offsetWidth}px`,
+          });
+        } else {
+          setHighlightStyle({
+            transform: `translateY(${tab.offsetTop}px)`,
+            height: `${tab.offsetHeight}px`,
+          });
+        }
+      }, 0);
+    }
+  }, [activeTabId, jobsData.length]);
 
   // Focus on tabs when using up & down arrow keys
   const onKeyDown = e => {
@@ -267,7 +287,7 @@ const Jobs = () => {
                 </StyledTabButton>
               );
             })}
-          <StyledHighlight activeTabId={activeTabId} />
+          <StyledHighlight style={highlightStyle} />
         </StyledTabList>
 
         <StyledTabPanels>
@@ -283,7 +303,8 @@ const Jobs = () => {
                     role="tabpanel"
                     tabIndex={activeTabId === i ? '0' : '-1'}
                     aria-labelledby={`tab-${i}`}
-                    hidden={!(activeTabId === i)}>
+                    aria-hidden={activeTabId !== i}
+                    hidden={activeTabId !== i}>
                     <h3>
                       <span>{title}</span>
                       <span className="company">

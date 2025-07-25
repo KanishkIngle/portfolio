@@ -143,9 +143,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  .glow-section {
-    position: relative;
-    overflow: hidden;
+  section {
     margin: 0 auto;
     padding: 100px 0;
     max-width: 1000px;
@@ -157,28 +155,6 @@ const GlobalStyle = createGlobalStyle`
     @media (max-width: 480px) {
       padding: 60px 0;
     }
-  }
-
-  .glow-section::before {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 255, 150, 0.15) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    top: var(--mouse-y);
-    left: var(--mouse-x);
-    opacity: var(--glow-opacity);
-    transition: top 0.05s ease, left 0.05s ease, opacity 0.3s ease;
-    filter: blur(80px);
-    mix-blend-mode: lighten;
-    z-index: 0;
-  }
-
-  .glow-section:hover::before {
-    opacity: 1;
   }
 
   h1,
@@ -470,50 +446,6 @@ const GlobalStyle = createGlobalStyle`
   ${TransitionStyles};
 
   ${PrismStyles};
-
-  /* Added styles for projects to fix z-index and spacing */
-  .StyledProject {
-    &:last-of-type {
-      margin-bottom: 150px;
-    }
-
-    .project-content {
-      z-index: 3;
-
-      @media (max-width: 768px) {
-        position: relative;
-        z-index: 3;
-        background-color: rgba(10, 25, 47, 0.85);
-        backdrop-filter: blur(4px);
-        border-radius: var(--border-radius);
-        box-shadow: 0 10px 30px -15px var(--navy);
-      }
-    }
-
-    .project-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-    }
-
-    .project-description {
-      z-index: 4;
-      margin-bottom: 20px;
-    }
-
-    .project-title {
-      line-height: 1.2;
-    }
-
-    .project-image {
-      z-index: 1;
-
-      a:before {
-        z-index: 1;
-      }
-    }
-  }
 `;
 
 export default GlobalStyle;
