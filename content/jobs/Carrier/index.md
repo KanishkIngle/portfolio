@@ -1,5 +1,5 @@
 ---
-date: '2023-12-21'
+date: '2022'
 title: 'Software Developer'
 company: 'Carrier Inc.'
 location: 'Hyderabad, TL'

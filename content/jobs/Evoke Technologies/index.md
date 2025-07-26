@@ -1,5 +1,5 @@
 ---
-date: '2024-10-08'
+date: '2025'
 title: 'Software Developer'
 company: 'Evoke Technologies'
 location: 'Hyderabad, TL'

@@ -86,11 +86,12 @@ const StyledTabButton = styled.button`
   }
   @media (max-width: 600px) {
     ${({ theme }) => theme.mixins.flexCenter};
-    min-width: 120px;
+    min-width: max-content;
     padding: 0 15px;
     border-left: 0;
     border-bottom: 2px solid var(--lightest-navy);
     text-align: center;
+    white-space: nowrap;
   }
 
   &:hover,
@@ -103,7 +104,7 @@ const StyledHighlight = styled.div.attrs(props => ({
   style: props.style,
 }))`
   position: absolute;
-  top: 0;
+  top: -84px;
   left: 0;
   z-index: 10;
   width: 2px;
@@ -114,21 +115,24 @@ const StyledHighlight = styled.div.attrs(props => ({
   transition-delay: 0.1s;
 
   @media (max-width: 600px) {
-    top: auto;
+    top: auto !important;
     bottom: 0;
-    width: 100%;
-    max-width: var(--tab-width);
+    width: auto;
     height: 2px;
-    margin-left: 50px;
+    margin-left: 0;
   }
 
   @media (max-width: 480px) {
     margin-left: 25px;
   }
+
+  /* Ensure top is reset for mobile */
+  @media (max-width: 600px) {
+    top: auto !important;
+  }
 `;
 
 const StyledTabPanels = styled.div`
-  position: relative;
   width: 100%;
   margin-left: 20px;
 
@@ -205,6 +209,10 @@ const Jobs = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
+  useEffect(() => {
+    tabs.current = new Array(jobsData.length);
+  }, [jobsData.length]);
+
   const focusTab = () => {
     if (tabs.current[tabFocus]) {
       tabs.current[tabFocus].focus();
@@ -224,9 +232,12 @@ const Jobs = () => {
   useEffect(() => focusTab(), [tabFocus]);
 
   useEffect(() => {
-    const tab = tabs.current[activeTabId];
-    if (tab) {
-      setTimeout(() => {
+    console.log('tabs.current', tabs.current);
+    setTimeout(() => {
+      const tab = tabs.current[activeTabId];
+      console.log('activeTabId:', activeTabId, 'tab:', tab);
+      if (tab) {
+        tab.getBoundingClientRect(); // force layout reflow
         if (window.innerWidth < 600) {
           setHighlightStyle({
             transform: `translateX(${tab.offsetLeft}px)`,
@@ -238,8 +249,8 @@ const Jobs = () => {
             height: `${tab.offsetHeight}px`,
           });
         }
-      }, 0);
-    }
+      }
+    }, 0);
   }, [activeTabId, jobsData.length]);
 
   // Focus on tabs when using up & down arrow keys
@@ -276,7 +287,10 @@ const Jobs = () => {
                 <StyledTabButton
                   key={i}
                   isActive={activeTabId === i}
-                  onClick={() => setActiveTabId(i)}
+                  onClick={() => {
+                    setActiveTabId(i);
+                    setTabFocus(i);
+                  }}
                   ref={el => (tabs.current[i] = el)}
                   id={`tab-${i}`}
                   role="tab"
