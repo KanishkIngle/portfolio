@@ -146,7 +146,7 @@ const About = () => {
           <div>
             <p>I am Full-Stack Developer </p>
             <p>
-              I hold about 2+ years of experience in the Cloud Development Domain, blending
+              I hold about 3+ years of experience in the Cloud Development Domain, blending
               leadership, management, and software engineering to create innovative solutions.
               Currently, I’m at <a href="https://www.evoketechnologies.com/">Evoke Technologies</a>,
               in Hyderabad, specializing in cloud technology to build scalable and modern systems.
