@@ -126,15 +126,16 @@ const About = () => {
   }, []);
 
   const skills = [
-    'JavaScript (ES6+)',
-    'TypeScript',
-    'React',
+    'TypeScript (ES6+)',
+    'Angular',
+    'Golang',
     'AWS',
-    'Node.js',
-    'Java',
-    'GO',
-    '.NET Core',
     'Azure',
+    'Docker',
+    'Kubernetes',
+    'Kafka',
+    'Redis',
+    'DynamoDB',
   ];
 
   return (
@@ -144,26 +145,34 @@ const About = () => {
       <div className="inner">
         <StyledText>
           <div>
-            <p>I am Full-Stack Developer </p>
             <p>
-              I hold about 3+ years of experience in the Cloud Development Domain, blending
-              leadership, management, and software engineering to create innovative solutions.
-              Currently, I’m at <a href="https://www.evoketechnologies.com/">Evoke Technologies</a>,
-              in Hyderabad, specializing in cloud technology to build scalable and modern systems.
+              I am a backend-focused Software Engineer with 3.5+ years of experience building
+              cloud-native systems and scalable backend platforms.
             </p>
+
             <p>
-              I’m skilled in Amazon Web Services and Azure Cloud, where I design, develop, and
-              manage thriving digital ecosystems. My role goes beyond coding; I steer projects to
-              ensure they meet goals.
+              Currently, I work at{' '}
+              <a href="https://www.evoketechnologies.com/"> Evoke Technologies </a> in Hyderabad,
+              where I design and develop distributed backend services and modern web applications,
+              primarily using <b> Golang, Angular, and AWS</b>.
             </p>
+
             <p>
-              Collaboration is key to my approach. I excel in team environments, leveraging
-              collective expertise to tackle challenges. I foster a culture of unity and support,
-              believing that teamwork drives success.
+              My work revolves around building reliable, high-performance systems — from designing
+              <b> REST and gRPC APIs </b> to deploying microservices on cloud infrastructure using{' '}
+              <b> Docker, Kubernetes, and managed AWS services</b>.
             </p>
+
             <p>
-              Security is a top priority in my work. I implement strong measures to protect cloud
-              applications from online threats, ensuring systems are secure and operational.
+              I have hands-on experience across both AWS and Azure, and I enjoy working close to
+              infrastructure, observability, and deployment pipelines to ensure systems behave well
+              in production.
+            </p>
+
+            <p>
+              I value clean architecture, clear ownership, and pragmatic engineering. I enjoy
+              collaborating with cross-functional teams to ship features end-to-end and solve
+              real-world engineering problems.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>

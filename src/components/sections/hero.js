@@ -35,6 +35,22 @@ const StyledHeroSection = styled.section`
     line-height: 0.9;
   }
 
+  .typewriter {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .cursor {
+    margin-left: 2px;
+    animation: blink 1s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
   p {
     margin: 20px 0 0;
     max-width: 540px;
@@ -46,9 +62,69 @@ const StyledHeroSection = styled.section`
   }
 `;
 
+const useTypewriter = (ref, words, start, options = {}) => {
+  const {
+    typingSpeed = 120,
+    deletingSpeed = 80,
+    pauseAfterType = 2000,
+    pauseAfterDelete = 200,
+  } = options;
+
+  useEffect(() => {
+    if (!start || !ref.current) {return;}
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let timeoutId;
+
+    const tick = () => {
+      const currentWord = words[wordIndex];
+
+      if (!isDeleting) {
+        ref.current.textContent = currentWord.slice(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+          timeoutId = setTimeout(() => {
+            isDeleting = true;
+            tick();
+          }, pauseAfterType);
+          return;
+        }
+      } else {
+        ref.current.textContent = currentWord.slice(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+
+          timeoutId = setTimeout(() => {
+            tick();
+          }, pauseAfterDelete);
+          return;
+        }
+      }
+
+      timeoutId = setTimeout(tick, isDeleting ? deletingSpeed : typingSpeed);
+    };
+
+    tick();
+    return () => clearTimeout(timeoutId);
+  }, [start]);
+};
+
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const typewriterRef = React.useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+
+  useTypewriter(
+    typewriterRef,
+    ['web', 'concurrency', 'scale', 'performance', 'security', 'robustness'],
+    isMounted,
+  );
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -61,27 +137,36 @@ const Hero = () => {
 
   const one = <h1>Hi, my name is</h1>;
   const two = <h2 className="big-heading">Kanishk Ingle.</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const three = (
+    <h3 className="big-heading">
+      I build things for the{' '}
+      <span className="typewriter">
+        <span ref={typewriterRef}></span>
+        <span className="cursor">|</span>
+      </span>
+    </h3>
+  );
   const four = (
     <>
-      <p>Hello! I’m Kanishk Ingle, hailing from the picturesque town of Sangli in Maharashtra. .</p>
       <p>
-        {' '}
-        Growing up in a humble family, my fascination with engineering marvels was ignited at a
-        young age. My curiosity deepened when I first laid my hands on a PC, captivated by the
-        boundless possibilities of software and its potential to transform our world.
+        Hey! I’m Kanishk - from Sangli, Maharashtra — a place where curiosity and ambition quietly
+        grow alongside simplicity.
       </p>
       <p>
-        Driven by this passion, I pursued higher education in Computer Science. I earned my Master’s
-        degree from the prestigious{' '}
+        My interest in engineering started early, sparked by a simple curiosity about how things
+        work. That curiosity turned serious the first time I got access to a computer. What began as
+        exploration quickly became fascination — writing code, breaking things, fixing them, and
+        realizing how software can quietly power the world around us.
+      </p>
+      <p>
+        Driven by this curiosity, I pursued Computer Science and earned my Master’s degree from the
+        prestigious{' '}
         <a href="https://www.nitgoa.ac.in/" target="_blank" rel="noreferrer">
           National Institute of Technology, Goa
         </a>{' '}
-        specializing in Blockchain and Security (2020-22). My undergraduate journey began at
-        <a href="https://www.unishivaji.ac.in/" target="_blank" rel="noreferrer">
-          Shivaji University, Kolhapur
-        </a>{' '}
-        , where I completed my Bachelor's Degree in Computer Engineering.
+        (2020–22). Since then, I’ve been focused on building reliable backend systems, working close
+        to cloud infrastructure, and solving problems that demand scalability, performance, and
+        thoughtful engineering.
       </p>
     </>
   );
