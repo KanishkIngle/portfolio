@@ -104,7 +104,7 @@ const StyledHighlight = styled.div.attrs(props => ({
   style: props.style,
 }))`
   position: absolute;
-  top: -84px;
+  top: -126px;
   left: 0;
   z-index: 10;
   width: 2px;
@@ -232,10 +232,8 @@ const Jobs = () => {
   useEffect(() => focusTab(), [tabFocus]);
 
   useEffect(() => {
-    console.log('tabs.current', tabs.current);
     setTimeout(() => {
       const tab = tabs.current[activeTabId];
-      console.log('activeTabId:', activeTabId, 'tab:', tab);
       if (tab) {
         tab.getBoundingClientRect(); // force layout reflow
         if (window.innerWidth < 600) {
