@@ -146,13 +146,12 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              I am a backend-focused Software Engineer with 3.5+ years of experience building
-              cloud-native systems and scalable backend platforms.
+              I am Senior Software Engineer with 3.5+ years of experience building cloud-native
+              systems and scalable backend platforms.
             </p>
 
             <p>
-              Currently, I work at{' '}
-              <a href="https://www.evoketechnologies.com/"> Evoke Technologies </a> in Hyderabad,
+              Currently, I work at <a href="https://nextpower.com/">NextPower Inc.</a> in Hyderabad,
               where I design and develop distributed backend services and modern web applications,
               primarily using <b> Golang, Angular, and AWS</b>.
             </p>

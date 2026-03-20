@@ -3,7 +3,7 @@ date: '2025'
 title: 'Software Developer'
 company: 'Evoke Technologies'
 location: 'Hyderabad, TL'
-range: 'June 2024 - Present'
+range: 'June 2024 - Feb 2026'
 url: 'https://www.evoketechnologies.com/'
 ---
 
