@@ -127,15 +127,15 @@ const About = () => {
 
   const skills = [
     'TypeScript (ES6+)',
-    'Angular',
+    'Node.js',
     'Golang',
-    'AWS',
+    'Python',
     'Azure',
     'Docker',
     'Kubernetes',
-    'Kafka',
+    'PostgreSQL',
     'Redis',
-    'DynamoDB',
+    'Batch Processing',
   ];
 
   return (
@@ -146,20 +146,20 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              I am Senior Software Engineer with 3.5+ years of experience building cloud-native
+              I am Senior Software Engineer with 4+ years of experience building cloud-native
               systems and scalable backend platforms.
             </p>
 
             <p>
               Currently, I work at <a href="https://nextpower.com/">NextPower Inc.</a> in Hyderabad,
               where I design and develop distributed backend services and modern web applications,
-              primarily using <b> Golang, Angular, and AWS</b>.
+              primarily using <b> Golang, Python, Angular and Azure</b>.
             </p>
 
             <p>
               My work revolves around building reliable, high-performance systems — from designing
               <b> REST and gRPC APIs </b> to deploying microservices on cloud infrastructure using{' '}
-              <b> Docker, Kubernetes, and managed AWS services</b>.
+              <b> Docker, Kubernetes, and managed Azure services</b>.
             </p>
 
             <p>

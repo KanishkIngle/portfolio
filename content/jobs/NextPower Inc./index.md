@@ -7,5 +7,7 @@ range: 'March 2026 - Present'
 url: 'https://nextpower.com/'
 ---
 
-- Working with Solar Utility Software and support closely to structural team
-- Handle the Go Backend codebase and ensure the services are running on scale
+- Develop solar utility software, collaborating closely with structural engineering teams to support tracker design and analysis workflows.
+- Own and maintain Go backend services, ensuring scalability, reliability, and performance across production workloads.
+- Build and execute Python/Django batch-processing workflows for FEA-based analysis of solar tracker design metrics.
+- Develop and maintain Node.js reporting and server-side rendering (SSR) workflows for efficient report generation and delivery.

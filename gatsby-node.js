@@ -6,6 +6,17 @@
 
 const path = require('path');
 const _ = require('lodash');
+const { File, Blob } = require('buffer');
+
+const globalScope = typeof global !== 'undefined' ? global : this;
+
+if (typeof globalScope.File === 'undefined') {
+  globalScope.File = File;
+}
+
+if (typeof globalScope.Blob === 'undefined') {
+  globalScope.Blob = Blob;
+}
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
